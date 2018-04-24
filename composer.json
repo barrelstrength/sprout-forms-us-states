@@ -31,12 +31,12 @@
         }
     },
     "extra": {
-        "name": "Sprout Google Recaptcha",
+        "name": "Sprout Forms US States",
         "handle": "sprout-forms-usstates",
-        "schemaVersion": "3.0.0",
+        "schemaVersion": "1.0.0",
         "developer": "Barrel Strength",
         "developerUrl": "https://barrelstrengthdesign.com",
-        "documentationUrl": "https://sprout.barrelstrengthdesign.com/craft-plugins/google-recaptcha",
+        "documentationUrl": "https://sprout.barrelstrengthdesign.com/craft-plugins/sprout-forms",
         "changelogUrl": "https://raw.githubusercontent.com/BarrelStrength/sprout-forms-usstates/master/CHANGELOG.md",
         "downloadUrl": "https://github.com/BarrelStrength/sprout-forms-usstates/archive/master.zip",
         "class": "barrelstrength\\sproutformsusstates\\SproutFormsUsStates"
