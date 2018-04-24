@@ -21,8 +21,8 @@
 >
     {%- for key, option in options -%}
 
-    {%- set optionLabel = (option.optionLabel is defined ? option.optionLabel : null) -%}
-    {%- set optionValue = (option.value is defined ? option.value : key) -%}
+    {%- set optionLabel = option -%}
+    {%- set optionValue = key -%}
 
     <option value="{{ optionValue }}"
             {% if optionValue == value %}selected{% endif %}>{{ optionLabel }}</option>

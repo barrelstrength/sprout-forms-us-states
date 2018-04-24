@@ -23,7 +23,7 @@ class States extends BaseFormField implements PreviewableFieldInterface
     public $cssClasses;
 
     /**
-     * @var int|null The maximum number of characters allowed in the field
+     * @var string|null Default State
      */
     public $defaultState;
 
@@ -40,7 +40,7 @@ class States extends BaseFormField implements PreviewableFieldInterface
      */
     public function getSvgIconPath()
     {
-        return '@sproutbaseicons/united-states-state.svg';
+        return '@sproutformsusstatesicons/us-map.svg';
     }
 
     /**
@@ -64,15 +64,19 @@ class States extends BaseFormField implements PreviewableFieldInterface
 
     /**
      * @inheritdoc
+     * @throws \yii\base\Exception
      */
     public function getInputHtml($value, ElementInterface $element = null): string
     {
-        return Craft::$app->getView()->renderTemplate('sprout-base/sproutfields/_fields/singleline/input',
+        $options = $this->getOptions();
+        
+        return Craft::$app->getView()->renderTemplate('_includes/forms/select',
             [
                 'name' => $this->handle,
-                'value' => $value,
-                'field' => $this,
-            ]);
+                'value' => $value ?? $this->defaultState,
+                'options' => $options
+            ]
+        );
     }
 
     /**
@@ -101,7 +105,7 @@ class States extends BaseFormField implements PreviewableFieldInterface
             'states/input',
             [
                 'name' => $this->handle,
-                'value' => $value,
+                'value' => $value ?? $this->defaultState,
                 'field' => $this,
                 'options' => $options,
                 'renderingOptions' => $renderingOptions

@@ -13,6 +13,7 @@ namespace barrelstrength\sproutformsusstates;
 use barrelstrength\sproutforms\services\Fields;
 use barrelstrength\sproutforms\events\RegisterFieldsEvent;
 use barrelstrength\sproutformsusstates\integrations\sproutforms\fields\States;
+use Craft;
 
 use craft\base\Plugin;
 
@@ -30,6 +31,8 @@ class SproutFormsUsStates extends Plugin
     public function init()
     {
         parent::init();
+
+        Craft::setAlias('@sproutformsusstatesicons', $this->getBasePath().'/web/icons');
 
         Event::on(Fields::class, Fields::EVENT_REGISTER_FIELDS, function(RegisterFieldsEvent $event) {
             $event->fields[] = new States();
