@@ -9,7 +9,7 @@ Add the library to your project via composer:
 ``` php
 {
     "require": {
-        "barrelstrength/barrelstrength/sprout-forms-us-states": "{version}"
+        "barrelstrength/sprout-forms-us-states": "{version}"
     }
 }
 ```
