@@ -2,6 +2,7 @@
 
 namespace barrelstrength\sproutformsusstates\integrations\sproutforms\fields;
 
+use CommerceGuys\Addressing\Model\Subdivision;
 use Craft;
 use craft\helpers\Template as TemplateHelper;
 use craft\base\ElementInterface;
@@ -45,6 +46,9 @@ class States extends BaseFormField implements PreviewableFieldInterface
 
     /**
      * @inheritdoc
+     *
+     * @throws \Twig_Error_Loader
+     * @throws \yii\base\Exception
      */
     public function getSettingsHtml()
     {
@@ -63,6 +67,9 @@ class States extends BaseFormField implements PreviewableFieldInterface
 
     /**
      * @inheritdoc
+     *
+     * @throws \Twig_Error_Loader
+     * @throws \yii\base\Exception
      */
     public function getInputHtml($value, ElementInterface $element = null): string
     {
@@ -79,6 +86,9 @@ class States extends BaseFormField implements PreviewableFieldInterface
 
     /**
      * @inheritdoc
+     *
+     * @throws \Twig_Error_Loader
+     * @throws \yii\base\Exception
      */
     public function getExampleInputHtml()
     {
@@ -94,6 +104,9 @@ class States extends BaseFormField implements PreviewableFieldInterface
 
     /**
      * @inheritdoc
+     *
+     * @throws \Twig_Error_Loader
+     * @throws \yii\base\Exception
      */
     public function getFrontEndInputHtml($value, array $renderingOptions = null): string
     {
@@ -132,6 +145,9 @@ class States extends BaseFormField implements PreviewableFieldInterface
         $states = $subdivisionObj->getAll('US');
 
         foreach ($states as $state) {
+            /**
+             * @var Subdivision $state
+             */
             $stateName = $state->getName();
             $options[$stateName] = $stateName;
         }
