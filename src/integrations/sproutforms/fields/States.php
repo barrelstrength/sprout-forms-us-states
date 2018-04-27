@@ -32,7 +32,7 @@ class States extends BaseFormField implements PreviewableFieldInterface
      */
     public static function displayName(): string
     {
-        return Craft::t('sprout-forms-usstates', 'US States');
+        return Craft::t('sprout-forms-us-states', 'US States');
     }
 
     /**
@@ -45,14 +45,13 @@ class States extends BaseFormField implements PreviewableFieldInterface
 
     /**
      * @inheritdoc
-     * @throws \yii\base\Exception
      */
     public function getSettingsHtml()
     {
         $options = $this->getOptions();
 
         $rendered = Craft::$app->getView()->renderTemplate(
-            'sprout-forms-usstates/_formtemplates/fields/states/settings',
+            'sprout-forms-us-states/_formtemplates/fields/states/settings',
             [
                 'field' => $this,
                 'options' => $options
@@ -64,12 +63,11 @@ class States extends BaseFormField implements PreviewableFieldInterface
 
     /**
      * @inheritdoc
-     * @throws \yii\base\Exception
      */
     public function getInputHtml($value, ElementInterface $element = null): string
     {
         $options = $this->getOptions();
-        
+
         return Craft::$app->getView()->renderTemplate('_includes/forms/select',
             [
                 'name' => $this->handle,
@@ -81,12 +79,12 @@ class States extends BaseFormField implements PreviewableFieldInterface
 
     /**
      * @inheritdoc
-     * @throws \yii\base\Exception
      */
     public function getExampleInputHtml()
     {
         $options = $this->getOptions();
-        return Craft::$app->getView()->renderTemplate('sprout-forms-usstates/_formtemplates/fields/states/example',
+
+        return Craft::$app->getView()->renderTemplate('sprout-forms-us-states/_formtemplates/fields/states/example',
             [
                 'field' => $this,
                 'options' => $options
@@ -96,7 +94,6 @@ class States extends BaseFormField implements PreviewableFieldInterface
 
     /**
      * @inheritdoc
-     * @throws \yii\base\Exception
      */
     public function getFrontEndInputHtml($value, array $renderingOptions = null): string
     {
@@ -125,12 +122,13 @@ class States extends BaseFormField implements PreviewableFieldInterface
 
     /**
      * Return US states as options for select field
+     *
      * @return array
      */
     private function getOptions()
     {
         $subdivisionObj = new SubdivisionRepository;
-        $options = [];
+        $options[] = Craft::t('sprout-forms-us-states', 'Select...');
         $states = $subdivisionObj->getAll('US');
 
         foreach ($states as $state) {

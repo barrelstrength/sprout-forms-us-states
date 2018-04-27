@@ -1,10 +1,10 @@
 {% import "_includes/forms" as forms %}
 
 {{ forms.selectField({
-label: "Default State"|t,
-instructions: "Choose a default country state.",
-id: 'defaultState',
-name: 'defaultState',
-options: options,
-value: field.defaultState
+    label: "Default State"|t,
+    instructions: "The State that should be selected by default.",
+    id: 'defaultState',
+    name: 'defaultState',
+    options: options,
+    value: field.defaultState
 }) }}

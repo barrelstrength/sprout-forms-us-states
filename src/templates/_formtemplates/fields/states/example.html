@@ -1,11 +1,5 @@
 {% import "_includes/forms" as forms %}
 
-{% if not options|length %}
-        {% set options = [
-                { label : "Select..."|t('ssproutforms-usstates'), default: 1 }
-        ] %}
-{% endif %}
-
 {{ forms.select({
     options: options,
     value: field.defaultState,

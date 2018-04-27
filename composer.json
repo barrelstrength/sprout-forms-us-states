@@ -1,6 +1,6 @@
 {
-    "name": "barrelstrength/sprout-forms-usstates",
-    "description": "US States field solution for Sprout Forms",
+    "name": "barrelstrength/sprout-forms-us-states",
+    "description": "US States Field for Sprout Forms",
     "type": "craft-plugin",
     "version": "1.0.0",
     "keywords": [
@@ -11,8 +11,8 @@
         "states"
     ],
     "support": {
-        "docs": "https://github.com/barrelstrength/craft-sprout-forms-usstates /sprout-forms-usstates/blob/master/README.md",
-        "issues": "https://github.com/barrelstrength/craft-sprout-forms-usstates /sprout-forms-usstates/issues"
+        "docs": "https://github.com/barrelstrength/craft-sprout-forms-us-states/blob/master/README.md",
+        "issues": "https://github.com/barrelstrength/craft-sprout-forms-us-states/issues"
     },
     "license": "MIT",
     "authors": [
@@ -22,7 +22,7 @@
         }
     ],
     "require": {
-        "craftcms/cms": "^3.0.0-RC1",
+        "craftcms/cms": "^3.0.0",
         "barrelstrength/sprout-forms": "^3.0.0"
     },
     "autoload": {
@@ -31,14 +31,14 @@
         }
     },
     "extra": {
-        "name": "Sprout Forms US States",
-        "handle": "sprout-forms-usstates",
+        "name": "US States Field for Sprout Forms",
+        "handle": "sprout-forms-us-states",
         "schemaVersion": "1.0.0",
         "developer": "Barrel Strength",
         "developerUrl": "https://barrelstrengthdesign.com",
-        "documentationUrl": "https://sprout.barrelstrengthdesign.com/craft-plugins/sprout-forms",
-        "changelogUrl": "https://raw.githubusercontent.com/BarrelStrength/sprout-forms-usstates/master/CHANGELOG.md",
-        "downloadUrl": "https://github.com/BarrelStrength/sprout-forms-usstates/archive/master.zip",
+        "documentationUrl": "https://github.com/barrelstrength/craft-sprout-forms-us-states/blob/master/README.md",
+        "changelogUrl": "https://github.com/barrelstrength/craft-sprout-forms-us-states/blob/master/CHANGELOG.md",
+        "downloadUrl": "https://github.com/barrelstrength/craft-sprout-forms-us-states/archive/master.zip",
         "class": "barrelstrength\\sproutformsusstates\\SproutFormsUsStates"
     }
 }
