@@ -29,6 +29,19 @@ class States extends BaseFormField implements PreviewableFieldInterface
     public $defaultState;
 
     /**
+     * @var mixed All States
+     */
+    public $options;
+
+    public function init()
+    {
+        if (is_null($this->options)){
+            $this->options = $this->getOptions();
+        }
+        parent::init();
+    }
+
+    /**
      * @inheritdoc
      */
     public static function displayName(): string
@@ -52,13 +65,11 @@ class States extends BaseFormField implements PreviewableFieldInterface
      */
     public function getSettingsHtml()
     {
-        $options = $this->getOptions();
-
         $rendered = Craft::$app->getView()->renderTemplate(
             'sprout-forms-us-states/_formtemplates/fields/states/settings',
             [
                 'field' => $this,
-                'options' => $options
+                'options' => $this->options
             ]
         );
 
@@ -73,13 +84,11 @@ class States extends BaseFormField implements PreviewableFieldInterface
      */
     public function getInputHtml($value, ElementInterface $element = null): string
     {
-        $options = $this->getOptions();
-
         return Craft::$app->getView()->renderTemplate('_includes/forms/select',
             [
                 'name' => $this->handle,
                 'value' => $value ?? $this->defaultState,
-                'options' => $options
+                'options' => $this->options
             ]
         );
     }
@@ -92,12 +101,10 @@ class States extends BaseFormField implements PreviewableFieldInterface
      */
     public function getExampleInputHtml()
     {
-        $options = $this->getOptions();
-
         return Craft::$app->getView()->renderTemplate('sprout-forms-us-states/_formtemplates/fields/states/example',
             [
                 'field' => $this,
-                'options' => $options
+                'options' => $this->options
             ]
         );
     }
@@ -110,14 +117,13 @@ class States extends BaseFormField implements PreviewableFieldInterface
      */
     public function getFrontEndInputHtml($value, array $renderingOptions = null): string
     {
-        $options = $this->getOptions();
         $rendered = Craft::$app->getView()->renderTemplate(
             'states/input',
             [
                 'name' => $this->handle,
                 'value' => $value ?? $this->defaultState,
                 'field' => $this,
-                'options' => $options,
+                'options' => $this->options,
                 'renderingOptions' => $renderingOptions
             ]
         );
