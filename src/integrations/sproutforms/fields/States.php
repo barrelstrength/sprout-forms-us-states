@@ -9,14 +9,14 @@ use craft\base\ElementInterface;
 use craft\base\PreviewableFieldInterface;
 use CommerceGuys\Addressing\Repository\SubdivisionRepository;
 
-use barrelstrength\sproutforms\contracts\BaseFormField;
+use barrelstrength\sproutforms\base\FormField;
 
 /**
  * Class States
  *
  * @package Craft
  */
-class States extends BaseFormField implements PreviewableFieldInterface
+class States extends FormField implements PreviewableFieldInterface
 {
     /**
      * @var string
@@ -66,7 +66,7 @@ class States extends BaseFormField implements PreviewableFieldInterface
     public function getSettingsHtml()
     {
         $rendered = Craft::$app->getView()->renderTemplate(
-            'sprout-forms-us-states/_formtemplates/fields/states/settings',
+            'sprout-forms-us-states/_integrations/sproutforms/formtemplates/fields/states/settings',
             [
                 'field' => $this,
                 'options' => $this->options
@@ -101,7 +101,9 @@ class States extends BaseFormField implements PreviewableFieldInterface
      */
     public function getExampleInputHtml()
     {
-        return Craft::$app->getView()->renderTemplate('sprout-forms-us-states/_formtemplates/fields/states/example',
+        $options = $this->getOptions();
+
+        return Craft::$app->getView()->renderTemplate('sprout-forms-us-states/_integrations/sproutforms/formtemplates/fields/states/example',
             [
                 'field' => $this,
                 'options' => $this->options
@@ -136,7 +138,7 @@ class States extends BaseFormField implements PreviewableFieldInterface
      */
     public function getTemplatesPath()
     {
-        return Craft::getAlias('@barrelstrength/sproutformsusstates/templates/_formtemplates/fields/');
+        return Craft::getAlias('@barrelstrength/sproutformsusstates/templates/_integrations/sproutforms/formtemplates/fields/');
     }
 
     /**
