@@ -21,9 +21,20 @@ use yii\base\Event;
 
 class SproutFormsUsStates extends Plugin
 {
+    /**
+     * @var bool
+     */
     public $hasCpSettings = false;
 
+    /**
+     * @var bool
+     */
     public $hasCpSection = false;
+
+    /**
+     * @var string
+     */
+    public $schemaVersion = '1.0.0';
 
     /**
      * @inheritdoc

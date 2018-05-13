@@ -33,7 +33,6 @@
     "extra": {
         "name": "US States Field for Sprout Forms",
         "handle": "sprout-forms-us-states",
-        "schemaVersion": "1.0.0",
         "developer": "Barrel Strength",
         "developerUrl": "https://barrelstrengthdesign.com",
         "documentationUrl": "https://github.com/barrelstrength/craft-sprout-forms-us-states/blob/master/README.md",
