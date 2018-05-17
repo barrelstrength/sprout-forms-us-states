@@ -1,6 +1,6 @@
 # US States Field for Sprout Forms Changelog
 
-## 1.0.3 - 2018-05-15
+## 1.0.4 - 2018-05-15
 
 ### Changed
 - Updated BaseFormField => FormField
