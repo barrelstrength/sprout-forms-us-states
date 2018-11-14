@@ -1,5 +1,11 @@
 # US States Field for Sprout Forms Changelog
 
+## 1.0.5 - 2018-11-14
+
+### Changed
+- Updated commerceguys/addressing support to v1.0.1
+- Updated Sprout Forms requirement to v3.0.0-beta.33
+
 ## 1.0.4 - 2018-05-15
 
 ### Changed
