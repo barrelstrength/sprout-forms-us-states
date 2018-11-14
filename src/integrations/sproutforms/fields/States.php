@@ -148,7 +148,7 @@ class States extends FormField implements PreviewableFieldInterface
      */
     private function getOptions()
     {
-        $subdivisionObj = new SubdivisionRepository;
+        $subdivisionObj = new SubdivisionRepository();
         $options[] = Craft::t('sprout-forms-us-states', 'Select...');
         $states = $subdivisionObj->getAll(['US']);
 
