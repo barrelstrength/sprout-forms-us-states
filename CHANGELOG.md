@@ -1,5 +1,11 @@
 # US States Field for Sprout Forms Changelog
 
+## 1.0.6 - 2019-03-18
+
+### Updated
+- Added support for return types on Form Field class
+- Updated barrelstrength/sprout-forms requirement v3.0.0-beta.47
+
 ## 1.0.5 - 2018-11-14
 
 ### Changed
