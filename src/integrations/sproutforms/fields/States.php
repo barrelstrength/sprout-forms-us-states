@@ -2,21 +2,21 @@
 
 namespace barrelstrength\sproutformsusstates\integrations\sproutforms\fields;
 
-use CommerceGuys\Addressing\Model\Subdivision;
+use CommerceGuys\Addressing\Subdivision\Subdivision;
 use Craft;
 use craft\helpers\Template as TemplateHelper;
 use craft\base\ElementInterface;
 use craft\base\PreviewableFieldInterface;
-use CommerceGuys\Addressing\Repository\SubdivisionRepository;
+use CommerceGuys\Addressing\Subdivision\SubdivisionRepository;
 
-use barrelstrength\sproutforms\contracts\BaseFormField;
+use barrelstrength\sproutforms\base\FormField;
 
 /**
  * Class States
  *
  * @package Craft
  */
-class States extends BaseFormField implements PreviewableFieldInterface
+class States extends FormField implements PreviewableFieldInterface
 {
     /**
      * @var string
@@ -52,7 +52,7 @@ class States extends BaseFormField implements PreviewableFieldInterface
     /**
      * @return string
      */
-    public function getSvgIconPath()
+    public function getSvgIconPath(): string
     {
         return '@sproutformsusstatesicons/us-map.svg';
     }
@@ -99,7 +99,7 @@ class States extends BaseFormField implements PreviewableFieldInterface
      * @throws \Twig_Error_Loader
      * @throws \yii\base\Exception
      */
-    public function getExampleInputHtml()
+    public function getExampleInputHtml(): string
     {
         return Craft::$app->getView()->renderTemplate('sprout-forms-us-states/_formtemplates/fields/states/example',
             [
@@ -115,7 +115,7 @@ class States extends BaseFormField implements PreviewableFieldInterface
      * @throws \Twig_Error_Loader
      * @throws \yii\base\Exception
      */
-    public function getFrontEndInputHtml($value, array $renderingOptions = null): string
+    public function getFrontEndInputHtml($value, array $renderingOptions = null): \Twig_Markup
     {
         $rendered = Craft::$app->getView()->renderTemplate(
             'states/input',
@@ -134,7 +134,7 @@ class States extends BaseFormField implements PreviewableFieldInterface
     /**
      * @inheritdoc
      */
-    public function getTemplatesPath()
+    public function getTemplatesPath(): string
     {
         return Craft::getAlias('@barrelstrength/sproutformsusstates/templates/_formtemplates/fields/');
     }
@@ -148,7 +148,7 @@ class States extends BaseFormField implements PreviewableFieldInterface
     {
         $subdivisionObj = new SubdivisionRepository;
         $options[] = Craft::t('sprout-forms-us-states', 'Select...');
-        $states = $subdivisionObj->getAll('US');
+        $states = $subdivisionObj->getAll(['US']);
 
         foreach ($states as $state) {
             /**
