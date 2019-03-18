@@ -2,7 +2,7 @@
     "name": "barrelstrength/sprout-forms-us-states",
     "description": "US States Field for Sprout Forms",
     "type": "craft-plugin",
-    "version": "1.0.2",
+    "version": "1.0.6",
     "keywords": [
         "craft",
         "cms",
@@ -23,7 +23,7 @@
     ],
     "require": {
         "craftcms/cms": "^3.0.0",
-        "barrelstrength/sprout-forms": "^3.0.0"
+        "barrelstrength/sprout-forms": "^3.0.0-beta.47"
     },
     "autoload": {
         "psr-4": {
@@ -33,7 +33,6 @@
     "extra": {
         "name": "US States Field for Sprout Forms",
         "handle": "sprout-forms-us-states",
-        "schemaVersion": "1.0.0",
         "developer": "Barrel Strength",
         "developerUrl": "https://barrelstrengthdesign.com",
         "documentationUrl": "https://github.com/barrelstrength/craft-sprout-forms-us-states/blob/master/README.md",

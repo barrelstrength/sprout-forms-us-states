@@ -2,11 +2,11 @@
 
 namespace barrelstrength\sproutformsusstates\integrations\sproutforms\fields;
 
-use CommerceGuys\Addressing\Subdivision\Subdivision;
 use Craft;
 use craft\helpers\Template as TemplateHelper;
 use craft\base\ElementInterface;
 use craft\base\PreviewableFieldInterface;
+use CommerceGuys\Addressing\Subdivision\Subdivision;
 use CommerceGuys\Addressing\Subdivision\SubdivisionRepository;
 
 use barrelstrength\sproutforms\base\FormField;
@@ -66,7 +66,7 @@ class States extends FormField implements PreviewableFieldInterface
     public function getSettingsHtml()
     {
         $rendered = Craft::$app->getView()->renderTemplate(
-            'sprout-forms-us-states/_formtemplates/fields/states/settings',
+            'sprout-forms-us-states/_integrations/sproutforms/formtemplates/fields/states/settings',
             [
                 'field' => $this,
                 'options' => $this->options
@@ -101,7 +101,9 @@ class States extends FormField implements PreviewableFieldInterface
      */
     public function getExampleInputHtml(): string
     {
-        return Craft::$app->getView()->renderTemplate('sprout-forms-us-states/_formtemplates/fields/states/example',
+        $options = $this->getOptions();
+
+        return Craft::$app->getView()->renderTemplate('sprout-forms-us-states/_integrations/sproutforms/formtemplates/fields/states/example',
             [
                 'field' => $this,
                 'options' => $this->options
@@ -136,7 +138,7 @@ class States extends FormField implements PreviewableFieldInterface
      */
     public function getTemplatesPath(): string
     {
-        return Craft::getAlias('@barrelstrength/sproutformsusstates/templates/_formtemplates/fields/');
+        return Craft::getAlias('@barrelstrength/sproutformsusstates/templates/_integrations/sproutforms/formtemplates/fields/');
     }
 
     /**
@@ -146,10 +148,10 @@ class States extends FormField implements PreviewableFieldInterface
      */
     private function getOptions()
     {
-        $subdivisionObj = new SubdivisionRepository;
+        $subdivisionObj = new SubdivisionRepository();
         $options[] = Craft::t('sprout-forms-us-states', 'Select...');
         $states = $subdivisionObj->getAll(['US']);
-
+        
         foreach ($states as $state) {
             /**
              * @var Subdivision $state
