@@ -2,11 +2,11 @@
 
 namespace barrelstrength\sproutformsusstates\integrations\sproutforms\fields;
 
-use CommerceGuys\Addressing\Subdivision\Subdivision;
 use Craft;
 use craft\helpers\Template as TemplateHelper;
 use craft\base\ElementInterface;
 use craft\base\PreviewableFieldInterface;
+use CommerceGuys\Addressing\Subdivision\Subdivision;
 use CommerceGuys\Addressing\Subdivision\SubdivisionRepository;
 
 use barrelstrength\sproutforms\base\FormField;
@@ -151,7 +151,7 @@ class States extends FormField implements PreviewableFieldInterface
         $subdivisionObj = new SubdivisionRepository();
         $options[] = Craft::t('sprout-forms-us-states', 'Select...');
         $states = $subdivisionObj->getAll(['US']);
-
+        
         foreach ($states as $state) {
             /**
              * @var Subdivision $state
