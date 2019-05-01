@@ -10,11 +10,16 @@ use CommerceGuys\Addressing\Subdivision\Subdivision;
 use CommerceGuys\Addressing\Subdivision\SubdivisionRepository;
 
 use barrelstrength\sproutforms\base\FormField;
+use Twig_Error_Loader;
+use Twig_Markup;
+use yii\base\Exception;
 
 /**
  * Class States
  *
  * @package Craft
+ *
+ * @property mixed $settingsHtml
  */
 class States extends FormField implements PreviewableFieldInterface
 {
@@ -35,7 +40,7 @@ class States extends FormField implements PreviewableFieldInterface
 
     public function init()
     {
-        if (is_null($this->options)){
+        if ($this->options === null) {
             $this->options = $this->getOptions();
         }
         parent::init();
@@ -60,8 +65,8 @@ class States extends FormField implements PreviewableFieldInterface
     /**
      * @inheritdoc
      *
-     * @throws \Twig_Error_Loader
-     * @throws \yii\base\Exception
+     * @throws Twig_Error_Loader
+     * @throws Exception
      */
     public function getSettingsHtml()
     {
@@ -79,8 +84,8 @@ class States extends FormField implements PreviewableFieldInterface
     /**
      * @inheritdoc
      *
-     * @throws \Twig_Error_Loader
-     * @throws \yii\base\Exception
+     * @throws Twig_Error_Loader
+     * @throws Exception
      */
     public function getInputHtml($value, ElementInterface $element = null): string
     {
@@ -96,13 +101,11 @@ class States extends FormField implements PreviewableFieldInterface
     /**
      * @inheritdoc
      *
-     * @throws \Twig_Error_Loader
-     * @throws \yii\base\Exception
+     * @throws Twig_Error_Loader
+     * @throws Exception
      */
     public function getExampleInputHtml(): string
     {
-        $options = $this->getOptions();
-
         return Craft::$app->getView()->renderTemplate('sprout-forms-us-states/_integrations/sproutforms/formtemplates/fields/states/example',
             [
                 'field' => $this,
@@ -114,10 +117,10 @@ class States extends FormField implements PreviewableFieldInterface
     /**
      * @inheritdoc
      *
-     * @throws \Twig_Error_Loader
-     * @throws \yii\base\Exception
+     * @throws Twig_Error_Loader
+     * @throws Exception
      */
-    public function getFrontEndInputHtml($value, array $renderingOptions = null): \Twig_Markup
+    public function getFrontEndInputHtml($value, array $renderingOptions = null): Twig_Markup
     {
         $rendered = Craft::$app->getView()->renderTemplate(
             'states/input',
@@ -146,12 +149,12 @@ class States extends FormField implements PreviewableFieldInterface
      *
      * @return array
      */
-    private function getOptions()
+    private function getOptions(): array
     {
         $subdivisionObj = new SubdivisionRepository();
         $options[] = Craft::t('sprout-forms-us-states', 'Select...');
         $states = $subdivisionObj->getAll(['US']);
-        
+
         foreach ($states as $state) {
             /**
              * @var Subdivision $state

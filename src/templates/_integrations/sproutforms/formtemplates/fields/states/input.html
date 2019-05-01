@@ -7,25 +7,25 @@
 {%- set dataAttributes = null %}
 {%- set data = renderingOptions.data ?? null %}
 {%- for key, dataValue in data %}
-{%- set dataAttributes = dataAttributes ~ ' data-'~key~'="'~dataValue~'"' %}
+    {%- set dataAttributes = dataAttributes ~ ' data-'~key~'="'~dataValue~'"' %}
 {%- endfor -%}
 
 {% spaceless %}
-<select
+    <select
         {%- if name %} name="{{ name }}"{% endif %}
         {%- if id %} id="{{ id }}"{% endif %}
         {%- if class %} class="{{ class }}"{% endif %}
         {%- if required %} required aria-required="true"{% endif %}
         {%- if hasInstructions %} aria-describedby="{{ field.getNamespace() }}-{{ id }}-instructions"{% endif %}
         {{- dataAttributes|raw -}}
->
-    {%- for key, option in options -%}
+    >
+        {%- for key, option in options -%}
 
-    {%- set optionLabel = option -%}
-    {%- set optionValue = key -%}
+            {%- set optionLabel = option -%}
+            {%- set optionValue = key -%}
 
-    <option value="{{ optionValue }}"
-            {% if optionValue == value %}selected{% endif %}>{{ optionLabel }}</option>
-    {% endfor %}
-</select>
+            <option value="{{ optionValue }}"
+                    {% if optionValue == value %}selected{% endif %}>{{ optionLabel }}</option>
+        {% endfor %}
+    </select>
 {% endspaceless %}
