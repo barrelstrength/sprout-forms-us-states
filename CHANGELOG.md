@@ -1,4 +1,9 @@
-# US States Field for Sprout Forms Changelog
+# Changelog
+
+## 1.0.7 - 2019-04-30
+
+### Changed
+- Updated icon
 
 ## 1.0.6 - 2019-03-18
 
