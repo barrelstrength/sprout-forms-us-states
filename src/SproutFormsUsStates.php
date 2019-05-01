@@ -22,21 +22,6 @@ use yii\base\Event;
 class SproutFormsUsStates extends Plugin
 {
     /**
-     * @var bool
-     */
-    public $hasCpSettings = false;
-
-    /**
-     * @var bool
-     */
-    public $hasCpSection = false;
-
-    /**
-     * @var string
-     */
-    public $schemaVersion = '1.0.0';
-
-    /**
      * @inheritdoc
      */
     public function init()
@@ -45,7 +30,7 @@ class SproutFormsUsStates extends Plugin
 
         Craft::setAlias('@sproutformsusstatesicons', $this->getBasePath().'/web/icons');
 
-        Event::on(Fields::class, Fields::EVENT_REGISTER_FIELDS, function(RegisterFieldsEvent $event) {
+        Event::on(Fields::class, Fields::EVENT_REGISTER_FIELDS, static function(RegisterFieldsEvent $event) {
             $event->fields[] = new States();
         });
     }
