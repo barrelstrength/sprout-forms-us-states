@@ -11,8 +11,11 @@
         "states"
     ],
     "support": {
-        "docs": "https://github.com/barrelstrength/craft-sprout-forms-us-states/blob/master/README.md",
-        "issues": "https://github.com/barrelstrength/craft-sprout-forms-us-states/issues"
+        "email": "sprout@barrelstrengthdesign.com",
+        "issues": "https://github.com/barrelstrength/craft-sprout-forms-us-states/issues?state=open",
+        "source": "https://github.com/barrelstrength/craft-sprout-forms-us-states",
+        "docs": "https://sprout.barrelstrengthdesign.com/docs/forms",
+        "rss": "https://github.com/barrelstrength/craft-sprout-forms-us-states/commits/v2.atom"
     },
     "license": "MIT",
     "authors": [
@@ -34,10 +37,7 @@
         "name": "US States Field for Sprout Forms",
         "handle": "sprout-forms-us-states",
         "developer": "Barrel Strength",
-        "developerUrl": "https://barrelstrengthdesign.com",
-        "documentationUrl": "https://github.com/barrelstrength/craft-sprout-forms-us-states/blob/master/README.md",
-        "changelogUrl": "https://github.com/barrelstrength/craft-sprout-forms-us-states/blob/master/CHANGELOG.md",
-        "downloadUrl": "https://github.com/barrelstrength/craft-sprout-forms-us-states/archive/master.zip",
+        "documentationUrl": "https://sprout.barrelstrengthdesign.com/docs/forms",
         "class": "barrelstrength\\sproutformsusstates\\SproutFormsUsStates"
     }
 }
