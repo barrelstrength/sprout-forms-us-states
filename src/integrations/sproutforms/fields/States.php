@@ -2,6 +2,7 @@
 
 namespace barrelstrength\sproutformsusstates\integrations\sproutforms\fields;
 
+use barrelstrength\sproutforms\elements\Entry;
 use Craft;
 use craft\helpers\Template as TemplateHelper;
 use craft\base\ElementInterface;
@@ -120,7 +121,7 @@ class States extends FormField implements PreviewableFieldInterface
      * @throws Twig_Error_Loader
      * @throws Exception
      */
-    public function getFrontEndInputHtml($value, array $renderingOptions = null): Twig_Markup
+    public function getFrontEndInputHtml($value, Entry $entry, array $renderingOptions = null): Twig_Markup
     {
         $rendered = Craft::$app->getView()->renderTemplate(
             'states/input',
@@ -128,6 +129,7 @@ class States extends FormField implements PreviewableFieldInterface
                 'name' => $this->handle,
                 'value' => $value ?? $this->defaultState,
                 'field' => $this,
+                'entry' => $entry,
                 'options' => $this->options,
                 'renderingOptions' => $renderingOptions
             ]
